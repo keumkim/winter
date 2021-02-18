@@ -666,7 +666,7 @@ hystrix:
 ```
 
 - 부하에 대한 지연시간 발생코드
-- winterone/SirenOrder/src/main/java/winterschoolone/external/PaymentService.java
+- winter/SirenOrder/src/main/java/winterschoolone/external/PaymentService.java
 ``` java
     @PostPersist
     public void onPostPersist(){
@@ -695,12 +695,28 @@ siege -c100 -t60S -r10 -v --content-type "application/json" 'http://gateway.tuto
 # 무정지 배포
 
 - 무정지 배포가 되지 않는 readiness 옵션을 제거 설정
-winterone/Shop/kubernetes/deployment_n_readiness.yml
+winter/Coupon/kubernetes/deployment_n_readiness.yml
 ```yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coupon
+  namespace: tutorial
+  labels:
+    app: coupon
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: coupon
+  template:
+    metadata:
+      labels:
+        app: coupon
     spec:
       containers:
-        - name: shop
-          image: hispres.azurecr.io/shop:v1
+        - name: coupon
+          image: skuser01.azurecr.io/coupon:v1
           ports:
             - containerPort: 8080
 #          readinessProbe:
@@ -722,16 +738,33 @@ winterone/Shop/kubernetes/deployment_n_readiness.yml
 ```
 - 무정지 배포가 되지 않아 Siege 결과 Availability가 100%가 되지 않음
 
-![무정지배포(readiness 제외) 실행](https://user-images.githubusercontent.com/77368578/108004272-c0cbe700-7038-11eb-94c4-22a0785a7ebc.png)
-![무정지배포(readiness 제외) 실행결과](https://user-images.githubusercontent.com/77368578/108004276-c295aa80-7038-11eb-9618-1c85fe0a2f53.png)
+![무정지배포(readiness 제외) 실행](https://postfiles.pstatic.net/MjAyMTAyMThfNSAg/MDAxNjEzNjI1NDk2MjM0.6TXRSPCm4_M-VaGHkM9bn2rlEGrhpgiOk_g7HVJYz8wg.Zupe3To0-tIVtNaaY9RtLsQvQDCNM2jxmvKajlGmINAg.PNG.ksquaring/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-02-18_%EC%98%A4%ED%9B%84_2.10.11.png?type=w773)
+![무정지배포(readiness 제외) 실행2](https://postfiles.pstatic.net/MjAyMTAyMThfNCAg/MDAxNjEzNjI1NTA1NDA3.zOqhWdC8f2inbsI36926Bbbe7Om95sN8WGnWHomROGwg.UwlXlTgMWPP4lnRc2NSyXAjhkGdt-YOR4_skCWAdho4g.PNG.ksquaring/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-02-18_%EC%98%A4%ED%9B%84_2.11.13.png?type=w773)
+![무정지배포(readiness 제외) 실행결과](https://postfiles.pstatic.net/MjAyMTAyMThfNjEg/MDAxNjEzNjI1NTA4Njky.d-xhSpIvd-Oavlbi581nGSpJdeW0ABRK7KzKeQg1Ukwg.dYp0JjQqGutBsfxWHmXM6fV05x10M9O0gq5d2kq-UKkg.PNG.ksquaring/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-02-18_%EC%98%A4%ED%9B%84_2.12.35.png?type=w773)
 
 - 무정지 배포를 위한 readiness 옵션 설정
-winterone/Shop/kubernetes/deployment.yml
+winter/Coupon/kubernetes/deployment.yml
 ```yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coupon
+  namespace: tutorial
+  labels:
+    app: coupon
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: coupon
+  template:
+    metadata:
+      labels:
+        app: coupon
     spec:
       containers:
-        - name: shop
-          image: hispres.azurecr.io/shop:v1
+        - name: coupon
+          image: skuser01.azurecr.io/coupon:v1
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -754,8 +787,8 @@ winterone/Shop/kubernetes/deployment.yml
 
 - 무정지 배포를 위한 readiness 옵션 설정 후 적용 시 Siege 결과 Availability가 100% 확인
 
-![무정지배포(readiness 포함) 설정 및 실행](https://user-images.githubusercontent.com/77368578/108004281-c75a5e80-7038-11eb-857d-72a1c8bde94c.png)
-![무정지배포(readiness 포함) 설정 결과](https://user-images.githubusercontent.com/77368578/108004284-ca554f00-7038-11eb-8f62-9fcb3b069ed2.png)
+![무정지배포(readiness 포함) 설정 및 실행](https://postfiles.pstatic.net/MjAyMTAyMThfMjAz/MDAxNjEzNjI1NTE1MzUy.-N2WR7Yz0lc_0IR55FMltuZeIRjKXaon1L1QahikTK4g.DH83VjBDvkarbjWSLYPYUer19vn1IHGfpdXjspNMxb0g.PNG.ksquaring/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-02-18_%EC%98%A4%ED%9B%84_2.17.35.png?type=w773)
+![무정지배포(readiness 포함) 설정 결과](https://postfiles.pstatic.net/MjAyMTAyMThfMTE5/MDAxNjEzNjI1NTE4NDkz.jC-SDJTl7ZYolMT8W3oK15KSidcHeN5XDwvod9t04Lgg.FUxUQDga7v4hDMLw0cMYQY9YqtNIRHrSFu1pyupClOcg.PNG.ksquaring/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-02-18_%EC%98%A4%ED%9B%84_2.17.51.png?type=w773)
 
 # Self-healing (Liveness Probe)
 
