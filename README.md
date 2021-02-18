@@ -640,12 +640,12 @@ kubectl autoscale deploy coupon --min=1 --max=10 --cpu-percent=15 -n tutorial
 kubectl exec -it pod/siege -c siege -n tutorial -- /bin/bash
 siege -c100 -t120S -r10 -v --content-type "application/json" 'http://10.0.14.180:8080/coupons POST {"orderId": 111, "userId": "user10", "menuId": "menu10", "qty":10, "stampQty":10, "CouponQty":1}'
 ```
-![autoscale(hpa) 실행 및 부하발생](https://user-images.githubusercontent.com/77368578/107917594-8405de80-6fab-11eb-830c-b15f255b2314.png)
+![autoscale(hpa) 실행 및 부하발생](https://postfiles.pstatic.net/MjAyMTAyMThfMjE3/MDAxNjEzNjIzODExNjc4.jZ22O4OUsy784UNzHNXW51NIG4_6JenZrnlpKGbjC-Eg.ifRlAhfiXQq4zNdJ-C7BUMoHtBMzOZviTunBRVQlWO0g.PNG.ksquaring/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-02-18_%EC%98%A4%ED%9B%84_1.49.59.png?type=w773)
 - 오토스케일 모니터링을 걸어 스케일 아웃이 자동으로 진행됨을 확인한다.
 ```
 kubectl get all -n tutorial
 ```
-![autoscale(hpa)결과](https://user-images.githubusercontent.com/77368578/107917604-8831fc00-6fab-11eb-83bb-9ba19159d00d.png)
+![autoscale(hpa)결과](https://postfiles.pstatic.net/MjAyMTAyMThfMTA1/MDAxNjEzNjIzNzAyMjQx.8I_j-YUc_gy2Qp9bAafiwkYuhjLE0D_aNBydB1wt2ZUg.A5JEdf286G3EtrVjFe2wxMvoQ8jiJxA8R_ph5TBusIog.PNG.ksquaring/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-02-18_%EC%98%A4%ED%9B%84_1.47.59.png?type=w773)
 
 # 서킷 브레이킹
 
