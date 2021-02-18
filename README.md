@@ -425,11 +425,11 @@ public interface CouponService {
 
 - git에서 소스 가져오기
 ```
-git clone https://github.com/keumkim/winterone.git
+git clone https://github.com/keumkim/winter.git
 ```
 - Build 하기
 ```
-cd /winterone
+cd /winter
 cd gateway
 mvn package
 
