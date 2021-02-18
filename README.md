@@ -793,7 +793,7 @@ spec:
 # Self-healing (Liveness Probe)
 
 - Self-healing 확인을 위한 Liveness Probe 옵션 변경
-winterone/Shop/kubernetes/deployment_live.yml
+winter/Coupon/kubernetes/deployment_live.yml
 ```yml
           readinessProbe:
             httpGet:
@@ -811,11 +811,8 @@ winterone/Shop/kubernetes/deployment_live.yml
             periodSeconds: 5
 ```
 
-- Shop pod에 Liveness Probe 옵션 적용 확인
+- Coupon pod에 Liveness Probe 옵션 설정 후 적용 시 retry 발생 확인
 
-![self-healing설정 결과](https://user-images.githubusercontent.com/77368578/108004513-697a4680-7039-11eb-917a-1e100ddd2ccd.png)
-
-- Shop pod에서 적용 시 retry발생 확인
-
-![self-healing설정 후 restart증적](https://user-images.githubusercontent.com/77368578/108004507-6717ec80-7039-11eb-809f-67316db013c6.png)
+![self-healing설정 결과](https://postfiles.pstatic.net/MjAyMTAyMThfMjk1/MDAxNjEzNjI2NTE2NDMw.uU6KKurQBGJ18hSV5uPBdi_d13KFqcvoJMcW1z4rKeIg.vo8dXQqIV3z9HpqXctTFcS3eQEnIDIiBtrNZHxFCVOkg.PNG.ksquaring/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-02-18_%EC%98%A4%ED%9B%84_2.24.19.png?type=w773)
+![self-healing설정 후 restart증적](https://postfiles.pstatic.net/MjAyMTAyMThfMTQ2/MDAxNjEzNjI2NTE5OTY0.tHaR1s6WKyvNQyd1L8_eOciffsb4F3GrkB-PMsl6EvEg.9beRnSCK3pICTkdCQAgciR2UdZQi1cE5jxZ2MNO5bGIg.PNG.ksquaring/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-02-18_%EC%98%A4%ED%9B%84_2.34.41.png?type=w773)
 
