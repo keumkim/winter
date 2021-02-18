@@ -686,12 +686,11 @@ hystrix:
   
   동시 사용자 100명, 60초 동안 실시 
 ```
-siege -c100 -t60S -r10 -v --content-type "application/json" 'http://10.0.14.180:8080/sirenOrders 
-POST {"userId": "user10", "menuId": "menu10", "qty":10}'
+siege -c100 -t60S -r10 -v --content-type "application/json" 'http://gateway.tutorial:8080/sirenOrders POST {"userId": "user10", "menuId": "menu10", "qty":10, "stampQty":10, "CouponQty":1}'
 ```
 - 부하 발생하여 CB가 발동하여 요청 실패처리하였고, 밀린 부하가 다시 처리되면서 SirenOrders를 받기 시작
 
-![증빙10](https://user-images.githubusercontent.com/77368578/107917672-a8fa5180-6fab-11eb-9864-69af16a94e5e.png)
+![증빙10](https://postfiles.pstatic.net/MjAyMTAyMThfMjE2/MDAxNjEzNjI0NDA0NjM1.138XkP56XvmXMUWdP0MMHp0MokYthQTeB7fq5giFonkg._EFsjVS9yMneRhdlBifbXErgzPbvXdSBbT5pnyBnzAEg.PNG.ksquaring/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-02-18_%EC%98%A4%ED%9B%84_1.58.15.png?type=w773)
 
 # 무정지 배포
 
