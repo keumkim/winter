@@ -82,6 +82,7 @@ public class SirenOrder {
     private Integer qty;
     private String status;
     private String useCouponYN;
+    private Integer stampQty;
     private Integer couponQty;
 
     @PostPersist
@@ -98,6 +99,7 @@ public class SirenOrder {
 	        coupon.setMenuId(this.menuId);
 	        coupon.setQty(this.getQty());
 	        coupon.setUserId(this.getUserId());
+	        coupon.setStampQty(this.getStampQty());
 	        coupon.setCouponQty(this.getCouponQty() - this.getQty());
 	        // mappings goes here
 	        SirenOrderApplication.applicationContext.getBean(CouponService.class)
@@ -109,6 +111,8 @@ public class SirenOrder {
 	        payment.setMenuId(this.menuId);
 	        payment.setQty(this.getQty());
 	        payment.setUserId(this.getUserId());
+	        payment.setStampQty(this.getStampQty());
+	        payment.setCouponQty(this.getCouponQty());
 	        // mappings goes here
 	        SirenOrderApplication.applicationContext.getBean(PaymentService.class)
 	        .pay(payment);
@@ -176,6 +180,13 @@ public class SirenOrder {
     public void setUseCouponYN(String useCouponYN) {
         this. useCouponYN = useCouponYN;
     }
+    public Integer getStampQty() {
+        return stampQty;
+    }
+
+    public void setStampQty(Integer stampQty) {
+        this.stampQty = stampQty;
+    }
     public Integer getCouponQty() {
         return couponQty;
     }
@@ -237,7 +248,7 @@ public class PolicyHandler{
   
 - 원격 주문 (SirenOrder 동작 후 결과)
 
-![증빙1](https://user-images.githubusercontent.com/53815271/107907569-64fd5180-6f97-11eb-9f1e-cb1fb97fd4ff.png)
+![증빙1](https://postfiles.pstatic.net/MjAyMTAyMThfMTUw/MDAxNjEzNjIwNDkyNTI0.Q5CzHublGfX6xQarJmLnhVkByeOZ4lXIekzaUbR2j5kg.8MPPWJg4HcCXB26RDMs5c8A0TNK3GvqsGnoNHyAuYIIg.PNG.ksquaring/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-02-18_%EC%98%A4%ED%9B%84_12.54.06.png?type=w773)
 
 # GateWay 적용
 API GateWay를 통하여 마이크로 서비스들의 집입점을 통일할 수 있다.
