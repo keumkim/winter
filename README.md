@@ -554,7 +554,7 @@ spec:
 ```
 
 - Deployment.yml 에 ConfigMap 적용
-```java
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
