@@ -346,13 +346,14 @@ Materialized View 를 구현하여, 타 마이크로서비스의 데이터 원�
 
 - 주문(ordered) 실행 후 SirenOrderHomes 화면
 
-![증빙2](https://user-images.githubusercontent.com/53815271/107907619-7e060280-6f97-11eb-89b3-4e3236ff9ddd.png)
+![증빙2](https://postfiles.pstatic.net/MjAyMTAyMThfMTIy/MDAxNjEzNjIwOTAwMzA1.8SHMQw8zyAF1s2e-txALD7EW3rZpGevQSIJgTv1129kg.hJVqZW5vHPhnVq8xyPkmyuJNnDvZe8UWnAPnBIu1En4g.PNG.ksquaring/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-02-18_%EC%98%A4%ED%9B%84_1.01.20.png?type=w773)
 
 - 주문(OrderCancelled) 취소 후 SirenOrderHomes 화면
 
-![증빙3](https://user-images.githubusercontent.com/53815271/107908429-5e6fd980-6f99-11eb-8afc-2a2c070a1663.png)
+![증빙3](https://postfiles.pstatic.net/MjAyMTAyMThfMTUz/MDAxNjEzNjIxMjUyMjE0.b37ggJKV7x5fNtF8tOo-Qs1PpHeFtcaHs3ShaK7v7Lsg.SS6gX3TWnIS-OAtedybibSMqTfFXmlDpiiVdgxMlhFAg.PNG.ksquaring/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-02-18_%EC%98%A4%ED%9B%84_1.05.19.png?type=w773)
+![증빙4](https://postfiles.pstatic.net/MjAyMTAyMThfMTE3/MDAxNjEzNjIxMjM2NTgx.WmnpVUKZh--CQStHuRkk8FG92r3XGlC4TgriQBCHa7Qg.-y9LDIZ0hKqOeLOiyXC9-OODgzzc4ZSAsGv95r2STMUg.PNG.ksquaring/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-02-18_%EC%98%A4%ED%9B%84_1.05.55.png?type=w773)
 
-위와 같이 주문을 하게되면 SirenOrder -> Payment -> Shop -> SirenOrder 로 주문이 Assigend 되고
+위와 같이 주문을 하게되면 SirenOrder -> Coupon -> Shop -> SirenOrder 로 주문이 Assigend 되고
 
 주문 취소가 되면 Status가 refunded로 Update 되는 것을 볼 수 있다.
 
