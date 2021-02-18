@@ -417,7 +417,7 @@ public interface CouponService {
 ![증빙7](https://postfiles.pstatic.net/MjAyMTAyMThfMiAg/MDAxNjEzNjExNTM5Njg2.w4vBXhRCr5EZQOLSo5SxwXDhdMB51T9sblgq15OHOOkg.kFzOuPxbTaEJpnnmdF0mFx6qDD-wATv-LhS4VuqWW2gg.PNG.ksquaring/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-02-18_%EC%98%A4%EC%A0%84_10.25.25.png?type=w773)
 
 - Coupon 서비스 재기동 후 정상동작 확인
-![증빙8](https://postfiles.pstatic.net/MjAyMTAyMThfMiAg/MDAxNjEzNjExNTM5Njg2.w4vBXhRCr5EZQOLSo5SxwXDhdMB51T9sblgq15OHOOkg.kFzOuPxbTaEJpnnmdF0mFx6qDD-wATv-LhS4VuqWW2gg.PNG.ksquaring/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-02-18_%EC%98%A4%EC%A0%84_10.25.25.png?type=w773)
+![증빙8](https://postfiles.pstatic.net/MjAyMTAyMThfMTIy/MDAxNjEzNjIyNjk1OTcy.hFHwER7zrTnhR1SJlGr-d_7uwphEkxS_QR0uDRZDMmcg.2esaLUHs-a6-flAd5XvNFSykg-1sWfNJ8gIjc1eBy50g.PNG.ksquaring/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2021-02-18_%EC%98%A4%ED%9B%84_1.30.49.png?type=w773)
 
 # 운영
 
